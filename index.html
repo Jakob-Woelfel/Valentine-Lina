@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>💌 Ein Brief für dich</title>
+
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <canvas id="confetti"></canvas>
+  <div class="app">
+        <!-- STUFE 0A: Fake-Choice -->
+    <div id="stagePath" class="card center">
+      <h1 class="h1">Du hast Post bekommen </br> Wie möchtest du deinen Brief öffnen? 💌</h1>
+      <p class="sub">Keine falschen Entscheidungen… wahrscheinlich.</p>
+
+      <div class="row">
+        <button id="pathA" class="btn ghost">Vorsichtig</button>
+        <button id="pathB" class="btn ghost">Mutig</button>
+        <button id="pathC" class="btn primary">Dramatisch</button>
+      </div>
+
+    </div>
+
+    <!-- STUFE 0B: Gatekeeper-Quiz -->
+    <div id="stageQuiz" class="card hidden">
+      <div class="center">
+        <h1 class="h1">Gatekeeper: Wer bin ich? 😌</h1>
+        <p class="sub">3 Fragen. Wenn du eine falsch hast: zurück an den Start.</p>
+      </div>
+
+      <div class="quiz">
+        <!-- Q1 -->
+        <div class="q">
+          <div class="q-title">1) Wer bin ich?</div>
+          <label class="opt"><input type="checkbox" name="q1" value="1040"> §1040</label>
+          <label class="opt"><input type="checkbox" name="q1" value="984"> §984</label>
+          <label class="opt"><input type="checkbox" name="q1" value="18"> 18 Punkte</label>
+          <label class="opt"><input type="checkbox" name="q1" value="33"> §33</label>
+        </div>
+
+        <!-- Q2 -->
+        <div class="q">
+          <div class="q-title">2) Wie doll habe ich dich lieb???</div>
+          <label class="opt"><input type="radio" name="q2" value="a"> Schon sehr 🙂</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> Unfair viel 😌</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> Unendlich + 1</label>
+          <label class="opt"><input type="radio" name="q2" value="d"> „Das lässt sich nicht in Zahlen messen.“</label>
+        </div>
+
+        <!-- Q3 -->
+        <div class="q">
+          <div class="q-title">3) Welchen Ausdruck sage ich viel zu oft?</div>
+          <label class="opt"><input type="checkbox" name="q3" value="lets"> Lets goooo</label>
+          <label class="opt"><input type="checkbox" name="q3" value="digga"> Digga</label>
+          <label class="opt"><input type="checkbox" name="q3" value="passt"> aaaach, das passt schon</label>
+          <label class="opt"><input type="checkbox" name="q3" value="sicher"> Doch, da bin ich mir ziemlich sicher</label>
+        </div>
+
+        <div class="row">
+          <button id="quizSubmit" class="btn primary">Prüfen ✅</button>
+          <button id="quizReset" class="btn ghost">Zurück</button>
+        </div>
+
+        <p id="quizMsg" class="sub center"></p>
+      </div>
+    </div>
+    <!-- STUFE 1: Umschlag -->
+    <div id="stageEnvelope" class="card center">
+      <h1 class="h1">Du hast Post 💌</h1>
+      <p class="sub">Klick, um den Brief zu öffnen.</p>
+
+      <div class="envelope-stage">
+        <div id="envelopeWrap" class="envelope-wrap" role="button" aria-label="Brief öffnen">
+          <div class="envelope">
+            <div class="pocket"></div>
+            <div class="flap"></div>
+            <div class="seal">❤</div>
+            <div class="letter">
+              <div class="letter-inner">
+                <div class="script">Erst ein kleines Spiel…  </br></br> </div>
+                <div class="pill">Finde alle Paare, um weiterzukommen</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tiny">Tipp: Geht ganz schnell. Versprochen.</div>
+      </div>
+    </div>
+
+    <!-- STUFE 2: Memory -->
+    <div id="stageMemory" class="card hidden">
+      <div class="center">
+        <h1 class="h1">Mini-Memory</h1>
+        <p class="sub">Finde alle Paare, um den Brief freizuschalten.</p>
+      </div>
+
+      <div class="memory">
+        <div class="status">
+          <span class="pill">Paare: <b id="pairsDone">0</b>/<b id="pairsTotal">3</b></span>
+          <span class="pill">Züge: <b id="moves">0</b></span>
+        </div>
+
+        <div id="grid" class="grid" aria-label="Memory-Feld"></div>
+
+        <div class="row">
+          <button id="resetMemory" class="btn ghost">Neu starten</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STUFE 3: Valentins-Brief -->
+    <div id="stageValentine" class="letter-stage hidden">
+      <div class="paper">
+        <div class="paper-inner">
+          <div class="pill">💌 Offizielle Einladung</div>
+          <h2 class="title">Willst du mein Valentinsdate sein?</h2>
+          <div class="timer">Du hast <b id="timeLeft">10</b> Sekunden Zeit 😏</div>
+
+          <div id="btnArea" class="btnbar" aria-label="Entscheidung">
+            <button id="yesBtn" class="btn primary">JA 💖</button>
+            <button id="noBtn" class="btn ghost">NEIN 🙃</button>
+          </div>
+
+          <div id="tease" class="sub">Wähle weise.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STUFE 4: Finale -->
+    <div id="stageFinal" class="card final hidden">
+      <h2>Yaaaayyyy du hast mich gerade sehr glücklich gemacht ❤️</h2>
+      <p id="loveText">
+        Ich freu mich auf morgen.<br/>
+      </p>
+      <div class="row">
+        <button id="replay" class="btn ghost">Nochmal</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
