@@ -47,7 +47,7 @@ export function initMemoryStage({ images, onComplete }) {
       // Bild als <img> einfügen (wird per CSS bei face-down unsichtbar)
       const img = document.createElement("img");
       img.className = "tile-img";
-      img.src = new URL(`../${card.src}`, import.meta.url).toString();
+      img.src = card.src;
       img.alt = card.alt;
       img.loading = "eager";
       img.decoding = "async";
