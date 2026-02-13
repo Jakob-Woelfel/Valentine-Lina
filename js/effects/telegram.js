@@ -6,15 +6,18 @@ export async function sendTelegramMessage({
   const url = `https://api.telegram.org/bot${apiKey}/sendMessage`;
 
   try {
-    await fetch(url, {
+    const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         chat_id: chatId,
         text: message,
-        parse_mode: "Markdown"
+        parse_mode: "HTML",
       })
     });
+  const text = await res.text();   // 🔎 HIER wird Response gelesen
+  console.log("Telegram response:", res.status, text);
+
   } catch (err) {
     console.warn("Telegram send failed:", err);
   }

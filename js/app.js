@@ -76,15 +76,18 @@ function main(){
     seconds: 10,
     onYes: () => {
 
-      const message = `*Valentine Alert* 💖
-  • Status: SIE HAT JA GEKLICKT
-  • Zeit: ${new Date().toLocaleString()}
-  • URL: ${window.location.href}
-  `;
+      const message = `
+        <b>💖 VALENTINE CONFIRMED 💖</b>
+
+        Sie hat auf <b>JA</b> geklickt.
+
+        <b>Zeit:</b> ${new Date().toLocaleString()}
+        <b>Seite:</b> ${window.location.href}
+        `;
 
       sendTelegramMessage({
         apiKey: "8190238687:AAFraO46zExZYcZ8n30p8C6RAap2qgcdMGQ",
-        chatId: "DEINE_CH8420187944AT_ID",
+        chatId: "8420187944",
         message
       });
 
