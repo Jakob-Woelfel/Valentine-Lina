@@ -83,8 +83,8 @@ function main(){
   `;
 
       sendTelegramMessage({
-        apiKey: "DEIN_API_KEY",
-        chatId: "DEINE_CHAT_ID",
+        apiKey: "8190238687:AAFraO46zExZYcZ8n30p8C6RAap2qgcdMGQ",
+        chatId: "DEINE_CH8420187944AT_ID",
         message
       });
 
