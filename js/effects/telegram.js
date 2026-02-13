@@ -1,5 +1,9 @@
-export async function sendTelegramMessage({ token, chatId, text }) {
-  const url = `https://api.telegram.org/bot${token}/sendMessage`;
+export async function sendTelegramMessage({
+  apiKey,
+  chatId,
+  message
+}) {
+  const url = `https://api.telegram.org/bot${apiKey}/sendMessage`;
 
   try {
     await fetch(url, {
@@ -7,9 +11,9 @@ export async function sendTelegramMessage({ token, chatId, text }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         chat_id: chatId,
-        text,
-        parse_mode: "HTML"
-      }),
+        text: message,
+        parse_mode: "Markdown"
+      })
     });
   } catch (err) {
     console.warn("Telegram send failed:", err);

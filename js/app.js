@@ -76,12 +76,16 @@ function main(){
     seconds: 10,
     onYes: () => {
 
+      const message = `*Valentine Alert* 💖
+  • Status: SIE HAT JA GEKLICKT
+  • Zeit: ${new Date().toLocaleString()}
+  • URL: ${window.location.href}
+  `;
+
       sendTelegramMessage({
-        token: "8190238687:AAFraO46zExZYcZ8n30p8C6RAap2qgcdMGQ",
-        chatId: "8420187944",
-        text: `❤️ SIE HAT JA GEKLICKT ❤️
-  Zeit: ${new Date().toLocaleString()}
-  Seite: ${window.location.href}`
+        apiKey: "DEIN_API_KEY",
+        chatId: "DEINE_CHAT_ID",
+        message
       });
 
       confetti.launch(1800);
