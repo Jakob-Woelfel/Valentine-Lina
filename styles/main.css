@@ -12,6 +12,9 @@
 }
 
 *{box-sizing:border-box}
+html, body{
+  height: 100%;
+}
 
 body{
   margin:0;
@@ -19,9 +22,6 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   color:var(--ink);
   background: radial-gradient(1200px 600px at 50% 0%, var(--bg2), var(--bg1));
-  display:flex;
-  align-items: flex-start;   /* oben starten */
-  justify-content:center;
   padding:22px;
   overflow-x: hidden;
   overflow-y: auto;;
@@ -29,12 +29,12 @@ body{
 
 .app{
   width:min(920px, 100%);
+  margin: 0 auto;       /* horizontal zentrieren */
   display:grid;
   place-items:center;
   gap:18px;
   position:relative;
-
-  padding: 12px 0 32px; /* bottom space for scroll */
+  padding: 12px 0 32px;
 }
 
 .card{
