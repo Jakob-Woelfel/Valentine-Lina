@@ -6,6 +6,7 @@ import { initMemoryStage } from "./stages/memory.js";
 import { initValentineStage } from "./stages/valentine.js";
 import { initFinalStage } from "./stages/final.js";
 import { confetti } from "./effects/confetti.js";
+import { sendTelegramMessage } from "./effects/telegram.js";
 
 const stagePath     = qs("#stagePath");
 const stageQuiz     = qs("#stageQuiz");
@@ -74,13 +75,18 @@ function main(){
   const valentine = initValentineStage({
     seconds: 10,
     onYes: () => {
+
+      sendTelegramMessage({
+        token: "8190238687:AAFraO46zExZYcZ8n30p8C6RAap2qgcdMGQ",
+        chatId: "8420187944",
+        text: `❤️ SIE HAT JA GEKLICKT ❤️
+  Zeit: ${new Date().toLocaleString()}
+  Seite: ${window.location.href}`
+      });
+
       confetti.launch(1800);
       goTo("final");
     }
-  });
-
-  initFinalStage({
-    onReplay: () => resetToStart(quizApi)
   });
 }
 
