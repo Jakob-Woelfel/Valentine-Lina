@@ -59,8 +59,8 @@ function main(){
 
   const memory = initMemoryStage({
     images: [
-      { key: "p1", src: "img/Bild1.jpg", alt: "Bild 1" },
-      { key: "p2", src: "img/Bild2.jpg", alt: "Bild 2" },
+      { key: "p1", src: "img/Bild1.JPG", alt: "Bild 1" },
+      { key: "p2", src: "img/Bild2.JPG", alt: "Bild 2" },
       { key: "p3", src: "img/Bild3.jpeg", alt: "Bild 3" },
     ],
     onComplete: () => {
