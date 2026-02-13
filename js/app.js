@@ -57,11 +57,13 @@ function main(){
     }
   });
 
+  const imgUrl = (name) => new URL(`../img/${name}`, import.meta.url).href;
+
   const memory = initMemoryStage({
     images: [
-      { key: "p1", src: "img/Bild1.JPG", alt: "Bild 1" },
-      { key: "p2", src: "img/Bild2.JPG", alt: "Bild 2" },
-      { key: "p3", src: "img/Bild3.jpeg", alt: "Bild 3" },
+      { key: "p1", src: imgUrl("Bild1.JPG"), alt: "Bild 1" },
+      { key: "p2", src: imgUrl("Bild2.JPG"), alt: "Bild 2" },
+      { key: "p3", src: imgUrl("Bild3.jpeg"), alt: "Bild 3" },
     ],
     onComplete: () => {
       goTo("valentine");
