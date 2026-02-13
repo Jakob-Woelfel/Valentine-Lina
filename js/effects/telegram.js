@@ -6,6 +6,8 @@ export async function sendTelegramMessage({
   const url = `https://api.telegram.org/bot${apiKey}/sendMessage`;
 
   try {
+    console.log("TG apiKey:", apiKey);
+    console.log("TG chatId raw:", JSON.stringify(chatId));
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
